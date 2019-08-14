@@ -20,6 +20,6 @@ const AdditionalFeature = props => {
 };
 
 export default connect(
-	() => ({}),
+	null,
 	{ buyItem }
 )(AdditionalFeature);

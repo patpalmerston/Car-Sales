@@ -15,3 +15,4 @@ export const buyItem = id => {
 		payload: id
 	};
 };
+

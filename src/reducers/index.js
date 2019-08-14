@@ -26,16 +26,21 @@ export const carReducer = (state = initialState, action) => {
 				car: {
 					...state.car,
 					features: [...state.car.features, action.payload]
-				}
+				},
+				additionalPrice: {
+          ...state.additionalPrice,
+          additionalPrice: [state.store.price, action.payload.price]
+        }
 			};
 		case REMOVE_FEATURE:
 			return {
 				...state,
 				car: {
-          ...state.car,
-          features: state.car.features.filter(f => f.id !== action.payload.id)
-        }
+					...state.car,
+					features: state.car.features.filter(f => f.id !== action.payload.id)
+				}
 			};
+
 		default:
 			return state;
 	}
