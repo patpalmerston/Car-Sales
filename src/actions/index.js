@@ -1,18 +1,17 @@
 import { REMOVE_FEATURE, ADD_FEATURE, UPDATE_FEATURE } from './types';
-import { dispatch } from '../../../../../../../AppData/Local/Microsoft/TypeScript/3.5/node_modules/rxjs/internal/observable/range';
 
-const removeFeature = item => {
-  // dispatch an action here to remove an item
-  dispatch({
-    type: REMOVE_FEATURE,
-    payload: item.id
-  })
+export const removeFeature = id => {
+	// dispatch an action here to remove an item
+	return {
+		type: REMOVE_FEATURE,
+		payload: id
+	};
 };
 
-const buyItem = item => {
-  // dipsatch an action here to add an item
-  dispatch({
-    type: ADD_FEATURE,
-    payload: item.id
-  })
+export const buyItem = id => {
+	// dipsatch an action here to add an item
+	return {
+		type: ADD_FEATURE,
+		payload: id
+	};
 };
