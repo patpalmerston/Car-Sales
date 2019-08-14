@@ -18,7 +18,7 @@ const initialState = {
 };
 
 export const carReducer = (state = initialState, action) => {
-	console.log(action);
+	console.log('reducer', action);
 	switch (action.type) {
 		case ADD_FEATURE:
 			return {
@@ -31,7 +31,10 @@ export const carReducer = (state = initialState, action) => {
 		case REMOVE_FEATURE:
 			return {
 				...state,
-				car: state.car.features.filter(f => f.id !== action.payload)
+				car: {
+          ...state.car,
+          features: state.car.features.filter(f => f.id !== action.payload.id)
+        }
 			};
 		default:
 			return state;
