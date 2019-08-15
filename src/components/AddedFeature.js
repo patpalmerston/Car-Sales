@@ -1,13 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { removeFeature } from '../actions';
 
 const AddedFeature = props => {
-  return (
-    <li>
-      {/* Add an onClick to run a function to remove a feature */}
-      <button className="button">X</button>
-      {props.feature.name}
-    </li>
-  );
+	const onSubmit = e => {
+		e.preventDefault();
+		props.removeFeature(props.feature); // YOU neeed PRRORRROPPPPSSS
+	};
+	return (
+		<li>
+			{/* Add an onClick to run a function to remove a feature */}
+			<button className='button' onClick={onSubmit}>
+				X
+			</button>
+			{props.feature.name}
+		</li>
+	);
 };
 
-export default AddedFeature;
+export default connect(
+	null,
+	{ removeFeature }
+)(AddedFeature);
